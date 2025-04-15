@@ -8,17 +8,21 @@
         {
             InitializeComponent();
         }
-
-        private void OnCounterClicked(object sender, EventArgs e)
+        private void OnIncrement_Clicked(object sender, EventArgs e)
         {
             count++;
+            CounterBtn.Text = $"{count} polubień";
+        }
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
+        private void OnDecrement_Clicked(object sender, EventArgs e)
+        {
+            if (count <= 0)
+                CounterBtn.Text = $"{count} polubień";
             else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            {
+                count--;
+                CounterBtn.Text = $"{count} polubień";
+            }
         }
     }
 
